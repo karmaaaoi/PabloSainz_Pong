@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 257549686}
   m_Layer: 0
   m_Name: Border_Right
-  m_TagString: Untagged
+  m_TagString: Wall_R
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -428,7 +428,7 @@ GameObject:
   - component: {fileID: 734953776}
   m_Layer: 0
   m_Name: Border_Left
-  m_TagString: Untagged
+  m_TagString: Wall_L
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -899,7 +899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0de9e33f28cfee94ba6d1a6bf00842a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 20
+  velocity: 10
   gameManager: {fileID: 39697653}
 --- !u!58 &1643773088
 CircleCollider2D:
