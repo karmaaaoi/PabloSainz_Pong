@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class game_manager : MonoBehaviour
 
@@ -25,5 +27,13 @@ public class game_manager : MonoBehaviour
         Debug.Log("Marcador: " + score);
         score = Points_P1 + " | " + Points_P2;
         marcadorText.text = score;
+        if (Points_P1 == 5)
+        {
+            SceneManager.LoadScene(0);
+        }
+        else if (Points_P2 == 5)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }
