@@ -5,17 +5,30 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     public float velocity = 10f;
+    public float velocityMulty = 1;
     public game_manager gameManager;
 
     Rigidbody2D _rb;
+    AudioSource _audioSource;
     float _lastHorizontalDirection = 1f;
+
+    public float timeAlive = 0f;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _audioSource = GetComponent<AudioSource>();
         LaunchBall(0);
     }
-
+    private void Update()
+    {
+        timeAlive += Time.deltaTime;
+        if (timeAlive > 1f)
+        {
+            velocityMulty += 0.2f;
+            timeAlive = 0f;
+        }
+    }
     void FixedUpdate()
     {
         if (_rb.velocity.magnitude > velocity)
@@ -72,6 +85,7 @@ public class BallController : MonoBehaviour
         {
             Debug.Log("Derecha");
             gameManager.Points_P1++;
+            
             LaunchBall(-1);
         }
         if (collision.gameObject.CompareTag("Wall_L"))
@@ -80,6 +94,8 @@ public class BallController : MonoBehaviour
             gameManager.Points_P2++;
             LaunchBall(1);
         }
+        _audioSource.pitch = Random.Range(0.8f, 1.2f);
+        _audioSource.Play();
         Debug.Log("Ball Hit");
         
         gameManager.UpdatePoints();
