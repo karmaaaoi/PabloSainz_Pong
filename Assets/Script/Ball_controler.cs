@@ -6,6 +6,7 @@ public class BallController : MonoBehaviour
 {
     public float velocity = 10f;
     public float velocityMulty = 1;
+    public float ballVelocity = 1;
     public game_manager gameManager;
 
     Rigidbody2D _rb;
@@ -22,12 +23,18 @@ public class BallController : MonoBehaviour
     }
     private void Update()
     {
-        timeAlive += Time.deltaTime;
-        if (timeAlive > 1f)
-        {
-            velocityMulty += 0.2f;
-            timeAlive = 0f;
-        }
+        
+            if (timeAlive > 2 && velocityMulty < 2)
+            {
+                velocity *= velocityMulty;
+                timeAlive = 0f;
+                velocityMulty += 0.2f;
+            }
+            else
+            {
+                timeAlive += Time.deltaTime;
+            }
+            
     }
     void FixedUpdate()
     {

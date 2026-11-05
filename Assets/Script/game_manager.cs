@@ -16,9 +16,11 @@ public class game_manager : MonoBehaviour
     public AudioClip winSound;
     public TextMeshProUGUI marcadorText;
     public int PointsToWin = 5;
+    public GameObject winPanel;
     AudioSource _audioSource;
     void Start()
     {
+        Time.timeScale = 1f;
         Points_P1 = 0;
         Points_P2 = 0;
         score = Points_P1 + " | " + Points_P2;
@@ -31,21 +33,24 @@ public class game_manager : MonoBehaviour
         Debug.Log("Marcador: " + score);
         score = Points_P1 + " | " + Points_P2;
         marcadorText.text = score;
+        //if (Points_P1 == 5)
+        //{
+        //    SceneManager.LoadScene(0);
+        //}
+        //else if (Points_P2 == 5)
+        //{
+        //    SceneManager.LoadScene(0);
+        //}
         if (Points_P1 >= PointsToWin || Points_P2 >= PointsToWin)
         {
             _audioSource.clip = winSound;
+            winPanel.SetActive(true);
+            Time.timeScale = 0f;
         }
         else
         {
             _audioSource.clip = pointScoredSound;
         }
-        if (Points_P1 == 5)
-        {
-            SceneManager.LoadScene(0);
-        }
-        else if (Points_P2 == 5)
-        {
-            SceneManager.LoadScene(0);
-        }
+       
     }
 }

@@ -8,9 +8,14 @@ public class Scene_Controler : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(1);
+
     }
     public void ExitGame()
     {
         Application.Quit();
+    }
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

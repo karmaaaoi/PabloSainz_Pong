@@ -13,11 +13,24 @@ public class Player_controler : MonoBehaviour
     public float limitTop; //Top limit of the paddle's movement
     public float limitBottom; //Bottom limit of the paddle's movement
     public bool useArrowsKeys = false; //Selector of what player use arrow
+    public bool IA;
+    public GameObject ball;
     void Update()
     {
-        movepaddle();
+        if (IA == false)
+        { 
+            movepaddle(); 
+        }
+        else
+        {
+            movePaddleIA();
+        }
+        
     }
+    void movePaddleIA()
+    { 
 
+    }
     void movepaddle()
     {
         this.gameObject.transform.position = new Vector3(transform.position.x, limitpaddle(), transform.position.z);
